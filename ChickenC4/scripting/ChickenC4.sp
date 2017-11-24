@@ -172,13 +172,12 @@ public Action RoundFreezeEnd_Event(Event event, const char[] name, bool dontBroa
             chickenEnabledNR = false;
         } else {
             int chance = hChance.IntValue;
-            if(chance == 100 || (chance > 0 && GetRandomInt(chance, 100) <= chance)) {
+            if(chance == 100 || (chance > 0 && GetRandomInt(0, 100) <= chance)) {
                 chickenEnabled = true;
             }
         }
     }
-    
-    if(hMessage.BoolValue) {
+    if(chickenEnabled && hMessage.BoolValue) {
         //Message the players.
         PrintToChatAll(" \x0F[\x10ChickenC4\x0F]\x01 Chicken C4 Round activated.");
     }
